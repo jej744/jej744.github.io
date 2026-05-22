@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홍길동 | 데이터 분석가 & AI 자동화 스페셜리스트 포트폴리오</title>
+  
+  <!-- SEO 메타 태그 -->
+  <meta name="description" content="5년 경력 마케터 출신 데이터 분석가 홍길동의 포트폴리오입니다. n8n, Python, SQL, Tableau를 활용한 데이터 분석 및 AI 자동화 프로젝트를 소개합니다.">
+  <meta name="keywords" content="데이터 분석가, 마케터, AI 자동화, n8n, 파이썬, SQL, 태블로, 홍길동, 포트폴리오">
+  <meta property="og:title" content="홍길동 | 데이터 분석가 & AI 자동화 스페셜리스트">
+  <meta property="og:description" content="5년 경력 마케터 출신 데이터 분석가의 데이터 기반 캠페인 분석 및 AI 자동화 포트폴리오">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jej744.github.io">
+  
+  <!-- 폰트 적용 (Outfit, JetBrains Mono, 프리미엄 본고딕) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- 스타일 시트 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 배경 장식 (방사형 오로라 조명 효과) -->
+  <div class="bg-decorations">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- 헤더 / 내비게이션 바 (글래스모피즘) -->
+  <header id="main-header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <span class="logo-accent">&lt;</span>HGD<span class="logo-accent">.dev /&gt;</span>
+      </a>
+      
+      <!-- 실시간 검색바 (js/search.js 연동) -->
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="project-search" placeholder="스택, 프로젝트 키워드 검색...">
+      </div>
+
+      <nav class="nav-links">
+        <a href="#about" class="nav-item">소개</a>
+        <a href="#skills" class="nav-item">기술 스택</a>
+        <a href="#projects" class="nav-item">프로젝트</a>
+        <a href="#analytics" class="nav-item">AI 분석로그</a>
+      </nav>
+
+      <!-- 테마 토글 버튼 (js/theme.js 연동) -->
+      <button id="theme-toggle" aria-label="테마 전환">
+        <span class="toggle-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content-container">
+    
+    <!-- 히어로 섹션 -->
+    <section id="hero" class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="badge">Data Analyst & Automation</div>
+          <h1>비즈니스 성장을 이끄는<br><span class="gradient-text">데이터 분석 & AI 자동화</span></h1>
+          <p class="hero-desc">
+            <strong>5년 경력의 소비재 브랜드 마케터</strong> 출신으로, 비즈니스 맥락을 날카롭게 읽어내는 눈을 가졌습니다. 
+            현업의 병목을 해결하는 **AI 자동화 시스템(n8n)**을 구축하고, **Python**과 **SQL**로 가치 있는 행동 데이터를 추출합니다.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">프로젝트 보러가기</a>
+            <a href="mailto:jej744@email.com" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" class="btn-icon" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              이메일 문의
+            </a>
+          </div>
+          <div class="hero-links">
+            <a href="https://github.com/jej744" target="_blank" class="social-link">
+              <svg viewBox="0 0 24 24" class="link-icon" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              GitHub
+            </a>
+            <a href="https://jej744.github.io" target="_blank" class="social-link">
+              <svg viewBox="0 0 24 24" class="link-icon" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              포트폴리오 홈
+            </a>
+          </div>
+        </div>
+        
+        <!-- 히어로 사이드 비주얼 (n8n 워크플로우 컨셉 아트) -->
+        <div class="hero-visual">
+          <div class="workflow-card glass">
+            <div class="card-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="card-title">n8n Agentic Workflow</span>
+            </div>
+            <div class="workflow-canvas">
+              <div class="node-item node-trigger active">
+                <div class="node-icon">⚡</div>
+                <div class="node-name">Webhook</div>
+              </div>
+              <div class="flow-line active-line"></div>
+              <div class="node-item node-ai active">
+                <div class="node-icon">🤖</div>
+                <div class="node-name">Gemini AI Agent</div>
+              </div>
+              <div class="flow-line active-line"></div>
+              <div class="node-item node-db active">
+                <div class="node-icon">📊</div>
+                <div class="node-name">Sheets Log</div>
+              </div>
+            </div>
+            <div class="workflow-status">
+              <span class="status-indicator live"></span>
+              <span class="status-text">챗봇 에이전트 대기 중 (실시간 연동 가능)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 소개 & 커리어 타임라인 섹션 -->
+    <section id="about" class="about-section">
+      <h2 class="section-title">커리어 스토리</h2>
+      <div class="about-grid">
+        <div class="profile-card glass">
+          <div class="profile-img-placeholder">
+            <div class="profile-avatar">👨‍💻</div>
+          </div>
+          <h3>홍길동 (Hong Gil Dong)</h3>
+          <p class="profile-title">마케팅 백그라운드를 더한 데이터 분석가</p>
+          <ul class="profile-info">
+            <li><strong>연락처:</strong> <a href="mailto:jej744@email.com">jej744@email.com</a></li>
+            <li><strong>교육:</strong> 중랑여성인력개발센터 AX 데이터 분석·시각화 과정 수료</li>
+            <li><strong>강점:</strong> 문제 분석 능력, 비즈니스 성과 직결 자동화</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-wrapper glass">
+          <div class="timeline-header">
+            <h4>경력 로드맵 (Marketer to Data Analyst)</h4>
+          </div>
+          <div class="timeline">
+            <div class="timeline-event">
+              <div class="timeline-badge">2019-2024</div>
+              <div class="timeline-content">
+                <h5>소비재 브랜드 마케터 (5년 경력)</h5>
+                <p>소비재 브랜드에서 마케팅 캠페인을 전방위로 기획 및 집행하며, 광고 효율 측정, 매체별 성과 기여도 모델링 등 현업 비즈니스 분석 실무를 주도했습니다.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-event">
+              <div class="timeline-badge">2025-2026</div>
+              <div class="timeline-content">
+                <h5>AX 융합 데이터 분석 전문과정 수료</h5>
+                <p>중랑여성인력개발센터에서 'AX 융합 데이터 분석·시각화 전문인력 양성 과정'을 이수하며 Python, SQL, Tableau, AI 자동화 스택을 마스터하고 비즈니스 문제를 해결하는 정교한 데이터 스택을 내재화했습니다.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-event active">
+              <div class="timeline-badge">현재</div>
+              <div class="timeline-content">
+                <h5>데이터 기반 문제 해결 & 자동화 스페셜리스트</h5>
+                <p>단순한 데이터 추출에 그치지 않고, n8n과 Gemini AI API를 활용한 업무 자동화 워크플로우를 직접 설계 및 구축하여 현업의 생산성을 극대화합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 기술 스택 섹션 -->
+    <section id="skills" class="skills-section">
+      <h2 class="section-title">기술 스택 Matrix</h2>
+      <div class="skills-grid">
+        
+        <div class="skills-card glass">
+          <div class="skill-category-icon">🐍</div>
+          <h3>데이터 분석 & 언어</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-info"><span>Python (pandas, NumPy)</span><span class="skill-percent">90%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>SQL (MySQL, BigQuery)</span><span class="skill-percent">85%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-card glass">
+          <div class="skill-category-icon">📈</div>
+          <h3>시각화 & 대시보드</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-info"><span>Tableau</span><span class="skill-percent">88%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Power BI</span><span class="skill-percent">80%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-card glass">
+          <div class="skill-category-icon">🤖</div>
+          <h3>AI & 업무 자동화</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-info"><span>n8n 워크플로우 엔지니어링</span><span class="skill-percent">95%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>LLM (Gemini API, OpenAI API)</span><span class="skill-percent">92%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 프로젝트 섹션 (대화형 시뮬레이션 포함) -->
+    <section id="projects" class="projects-section">
+      <h2 class="section-title">주요 프로젝트</h2>
+      
+      <!-- 프로젝트 리스트 -->
+      <div class="projects-container">
+        
+        <!-- 프로젝트 1: Research Note Builder -->
+        <article class="project-card glass" data-tags="n8n, ai, python, 자동화, gemini">
+          <div class="project-badge">자동화 & AI</div>
+          <div class="project-body">
+            <h3>Research Note Builder</h3>
+            <p class="project-desc">
+              회사명을 입력하면 AI가 경쟁사 분석 보고서를 생성하고 GitHub Pages에 자동 발행하는 엔드투엔드 n8n 워크플로우 시스템입니다. 분석가 업무 효율을 극대화하여 분석 시간을 평균 **4분**으로 대폭 단축했습니다.
+            </p>
+            <div class="tech-tags">
+              <span>n8n</span>
+              <span>Gemini API</span>
+              <span>GitHub Pages</span>
+              <span>REST API</span>
+            </div>
+            
+            <!-- 프로젝트 1의 대화형 시뮬레이터 (WOW 요소!) -->
+            <div class="project-simulator glass">
+              <div class="simulator-header">
+                <span>⚡ Research Note Builder 가상 실행 환경</span>
+              </div>
+              <div class="simulator-body">
+                <p class="sim-instruction">경쟁사 정보를 도출할 대상 회사명을 입력하고 분석을 시작해보세요!</p>
+                <div class="sim-input-group">
+                  <input type="text" id="sim-company-input" placeholder="예: Apple, 테슬라, 배달의민족">
+                  <button id="sim-run-btn" class="btn btn-primary">분석 시작</button>
+                </div>
+                
+                <!-- n8n 노드 흐름 애니메이션 시뮬레이션 -->
+                <div class="sim-pipeline" style="display: none;">
+                  <div class="sim-node" id="sim-node-webhook">
+                    <span class="sim-node-icon">⚡</span>
+                    <span class="sim-node-label">Webhook 수신</span>
+                  </div>
+                  <div class="sim-connector"></div>
+                  <div class="sim-node" id="sim-node-gemini">
+                    <span class="sim-node-icon">🤖</span>
+                    <span class="sim-node-label">Gemini 분석</span>
+                  </div>
+                  <div class="sim-connector"></div>
+                  <div class="sim-node" id="sim-node-publish">
+                    <span class="sim-node-icon">🚀</span>
+                    <span class="sim-node-label">결과 발행</span>
+                  </div>
+                </div>
+
+                <div id="sim-output-box" class="sim-output" style="display: none;"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 프로젝트 2: 인스타그램 광고 효율 분석 -->
+        <article class="project-card glass" data-tags="python, pandas, tableau, 마케팅, 분석">
+          <div class="project-badge">데이터 분석 & 시각화</div>
+          <div class="project-body">
+            <h3>인스타그램 인플루언서 광고 효율 분석</h3>
+            <p class="project-desc">
+              인스타그램 마이크로/메가 인플루언서의 광고 데이터를 추출하고 팔로워 수 대비 인게이지먼트와 광고 투자 대비 효율(ROI)을 통계적으로 분석했습니다. <strong>마이크로 인플루언서가 참여율이 3배 더 높다</strong>는 비즈니스 인사이트를 도출하여 광고 기획 마케팅 예산 전략을 재조정했습니다.
+            </p>
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>pandas</span>
+              <span>Google Colab</span>
+              <span>Tableau</span>
+            </div>
+            
+            <!-- 프로젝트 2의 대화형 통계 시뮬레이터 (WOW 요소!) -->
+            <div class="project-chart-simulator glass">
+              <div class="simulator-header">
+                <span>📈 인플루언서 세그먼트별 광고 효율 대화형 시뮬레이션</span>
+              </div>
+              <div class="simulator-body">
+                <div class="chart-sim-grid">
+                  <div class="chart-controls">
+                    <label for="budget-range">마케팅 총 예산 ($): <span id="budget-value">5,000</span></label>
+                    <input type="range" id="budget-range" min="1000" max="20000" step="1000" value="5000">
+                    
+                    <label for="influencer-type">주력 인플루언서 그룹:</label>
+                    <select id="influencer-type">
+                      <option value="micro">마이크로 인플루언서 (참여도 높음, 단가 낮음)</option>
+                      <option value="mega">메가 인플루언서 (도달범위 넓음, 단가 높음)</option>
+                    </select>
+                  </div>
+                  
+                  <div class="chart-result-display">
+                    <div class="metric-box">
+                      <span class="metric-label">예상 도달수 (Impression)</span>
+                      <span class="metric-val" id="res-reach">50,000</span>
+                    </div>
+                    <div class="metric-box">
+                      <span class="metric-label">예상 참여수 (Engagement)</span>
+                      <span class="metric-val highlight" id="res-eng">4,500</span>
+                    </div>
+                    <div class="metric-box">
+                      <span class="metric-label">예상 획득 매출 (ROI)</span>
+                      <span class="metric-val" id="res-roi">$12,500</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 프로젝트 3: 포트폴리오 AI 챗봇 -->
+        <article class="project-card glass" data-tags="n8n, ai, gemini, 챗봇, chatbot">
+          <div class="project-badge">AI 챗봇</div>
+          <div class="project-body">
+            <h3>포트폴리오 AI 챗봇 (n8n + Gemini)</h3>
+            <p class="project-desc">
+              지금 보고 계시는 이 웹사이트 우측 하단에 활성화된 챗봇입니다! n8n 워크플로우에 Gemini 모델을 연동하여, 방문자가 저에 대해 묻는 질문(경력, 보유 기술, 이메일, 주요 프로젝트 성과)에 즉각적이고 친절하게 대답합니다. 대화 내역은 자동으로 구글 시트에 분석 기록으로 누적됩니다.
+            </p>
+            <div class="tech-tags">
+              <span>n8n 워크플로우</span>
+              <span>Gemini 2.0 Flash</span>
+              <span>Google Sheets API</span>
+              <span>Local Session Memory</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 방문자 로그 & 실시간 분석 대시보드 섹션 (n8n 로깅 아키텍처 연동) -->
+    <section id="analytics" class="analytics-section">
+      <div class="section-title-area">
+        <h2 class="section-title">AI 챗봇 방문자 대시보드</h2>
+        <p class="section-subtitle">n8n과 Google Sheets 자동 로깅 노드를 통해 실시간으로 수집되는 챗봇의 상호작용 지표입니다.</p>
+      </div>
+
+      <div class="analytics-grid">
+        
+        <!-- 주요 지표 카드들 -->
+        <div class="analytics-metrics">
+          <div class="metric-card glass">
+            <span class="m-icon">💬</span>
+            <div class="m-data">
+              <span class="m-label">누적 질문수</span>
+              <span class="m-value" id="stats-total-chats">42</span>
+            </div>
+          </div>
+          
+          <div class="metric-card glass">
+            <span class="m-icon">🎯</span>
+            <div class="m-data">
+              <span class="m-label">가장 잦은 질문 종류</span>
+              <span class="m-value" id="stats-top-category">프로젝트</span>
+            </div>
+          </div>
+
+          <div class="metric-card glass">
+            <span class="m-icon">⚡</span>
+            <div class="m-data">
+              <span class="m-label">평균 응답속도</span>
+              <span class="m-value">1.4초</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카테고리별 차트 시각화 (SVG로 그리는 프리미엄 도넛 차트) -->
+        <div class="analytics-chart-container glass">
+          <h4>질문 카테고리 분포 (실시간 반영)</h4>
+          <div class="donut-chart-wrapper">
+            <svg class="donut-chart" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--bg-card)" stroke-width="20"/>
+              <!-- 프로젝트 (40%) -->
+              <circle class="segment seg-project" cx="50" cy="50" r="40" fill="transparent" stroke="#5c6bc0" stroke-width="12" stroke-dasharray="100.53 251.32" stroke-dashoffset="0"/>
+              <!-- 기술 (25%) -->
+              <circle class="segment seg-tech" cx="50" cy="50" r="40" fill="transparent" stroke="#00bfa5" stroke-width="12" stroke-dasharray="62.83 251.32" stroke-dashoffset="-100.53"/>
+              <!-- 경력 (20%) -->
+              <circle class="segment seg-career" cx="50" cy="50" r="40" fill="transparent" stroke="#ff8f00" stroke-width="12" stroke-dasharray="50.26 251.32" stroke-dashoffset="-163.36"/>
+              <!-- 기타 (15%) -->
+              <circle class="segment seg-other" cx="50" cy="50" r="40" fill="transparent" stroke="#8d6e63" stroke-width="12" stroke-dasharray="37.7 251.32" stroke-dashoffset="-213.62"/>
+              
+              <div class="donut-hole-text">
+                <span class="donut-total">100%</span>
+              </div>
+            </svg>
+            <div class="chart-legend">
+              <div class="legend-item"><span class="legend-dot" style="background: #5c6bc0"></span> 프로젝트 (40%)</div>
+              <div class="legend-item"><span class="legend-dot" style="background: #00bfa5"></span> 기술 스택 (25%)</div>
+              <div class="legend-item"><span class="legend-dot" style="background: #ff8f00"></span> 경력/도메인 (20%)</div>
+              <div class="legend-item"><span class="legend-dot" style="background: #8d6e63"></span> 기타 (15%)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 실시간 시각화 로그 그리드 (구글 시트 누적 데이터 모사) -->
+        <div class="analytics-logs-container glass">
+          <div class="logs-header">
+            <h4>수집된 로그 데이터 그리드 (Google Sheets 연동 모사)</h4>
+            <span class="live-indicator"><span class="pulse-dot"></span> LIVE 동기화 중</span>
+          </div>
+          <div class="logs-table-wrapper">
+            <table class="logs-table">
+              <thead>
+                <tr>
+                  <th>타임스탬프</th>
+                  <th>카테고리</th>
+                  <th>질문 (Question)</th>
+                  <th>AI 답변 (Answer)</th>
+                </tr>
+              </thead>
+              <tbody id="live-logs-body">
+                <!-- js/app.js에서 챗봇 이벤트 수신하여 실시간 추가됨 -->
+                <tr>
+                  <td class="log-time">10:04:12</td>
+                  <td><span class="log-cat cat-project">프로젝트</span></td>
+                  <td class="log-q">어떤 분석 프로젝트를 하셨나요?</td>
+                  <td class="log-a">Research Note Builder 프로젝트와 인스타그램 광고 효율 분석을 개발했습니다...</td>
+                </tr>
+                <tr>
+                  <td class="log-time">10:02:45</td>
+                  <td><span class="log-cat cat-career">경력</span></td>
+                  <td class="log-q">마케터 경험이 분석가 업무에 도움이 되나요?</td>
+                  <td class="log-a">5년 동안 축적된 소비재 마케팅 실무 감각 덕분에, 데이터 이면의 실제 고객 구매 전환 여정을 누구보다 날카롭게 이해합니다...</td>
+                </tr>
+                <tr>
+                  <td class="log-time">09:58:30</td>
+                  <td><span class="log-cat cat-tech">기술</span></td>
+                  <td class="log-q">주요 분석 도구와 기술 스택이 어떻게 되나요?</td>
+                  <td class="log-a">Python(pandas, NumPy)과 SQL로 행동 데이터를 가공하며, Tableau와 Power BI를 활용해 동적 시각화 대시보드를 구축합니다...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- n8n 실시간 주소 동적 설정 패널 (WOW 요소!) -->
+      <div class="webhook-settings-panel glass">
+        <div class="settings-title-row">
+          <span class="settings-icon">⚙️</span>
+          <h4>n8n 챗봇 실시간 API 주소 설정</h4>
+        </div>
+        <p class="settings-desc">깃허브 블로그 배포 후 본인의 n8n 챗봇 웹훅 주소(Webhook URL)를 입력하고 적용하면, 이 사이트 전체의 챗봇이 실제 n8n AI 에이전트와 연동되어 작동합니다!</p>
+        <div class="settings-input-group">
+          <input type="url" id="n8n-webhook-url-input" placeholder="https://본인주소.app.n8n.cloud/webhook/chat" value="https://본인주소.app.n8n.cloud/webhook/chat">
+          <button id="n8n-save-url-btn" class="btn btn-primary">연동 주소 적용</button>
+        </div>
+        <span id="settings-status-msg" class="settings-status"></span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 홍길동. All Rights Reserved. Powered by n8n & Gemini AI.</p>
+      <p>본 포트폴리오는 마케터 백그라운드를 기반으로 한 데이터 가치 발굴 프로세스를 담고 있습니다.</p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 모음 -->
+  <script src="js/theme.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/search.js"></script>
+
+  <!-- ===== 포트폴리오 AI 챗봇 설정 ===== -->
+  <script>
+    // 사용자가 로컬 스토리지에 n8n 주소를 등록해 둔 경우 해당 주소를 불러오고, 없으면 기본값 지정
+    const savedWebhookUrl = localStorage.getItem('n8n_webhook_url') || 'https://본인주소.app.n8n.cloud/webhook/chat';
+    
+    // juansebsol/n8n-chatbot-template이 필요로 하는 전역 설정 객체 등록
+    window.ChatWidgetConfig = {
+      webhook: {
+        url: savedWebhookUrl
+      },
+      branding: {
+        name: 'Portfolio AI',
+        welcomeText: '안녕하세요! 홍길동의 포트폴리오 AI 어시스턴트입니다 😊 저에 대해 궁금하신 점을 편하게 대화해 보세요.',
+        responseTimeText: '잠시 후 답변드릴게요'
+      },
+      style: {
+        primaryColor: '#5c6bc0',
+        position: 'right',
+        backgroundColor: '#1e293b',
+        fontColor: '#ffffff'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/juansebsol/n8n-chatbot-template@latest/chat-widget.js"></script>
+
+</body>
+</html>
