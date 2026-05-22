@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const webhookGroup = document.getElementById('settings-webhook-group');
 
   // 로컬 스토리지에서 저장된 설정 로드 및 매핑
-  const savedMode = localStorage.getItem('n8n_chat_mode') || 'simulation';
+  const savedMode = localStorage.getItem('n8n_chat_mode') || 'live';
   const savedUrl = localStorage.getItem('n8n_webhook_url');
 
   if (savedUrl && webhookInput) {
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. 만약 시뮬레이션 모드이거나 n8n 서버가 연결되어 있지 않은 모의 주소인 경우,
         // 오프라인 에러 및 CORS preflight 에러 방지를 위해 가상의 Gemini AI 포트폴리오 에이전트 응답을 인터셉팅하여 바로 전달!
-        const isSimulationMode = (localStorage.getItem('n8n_chat_mode') || 'simulation') === 'simulation';
+        const isSimulationMode = (localStorage.getItem('n8n_chat_mode') || 'live') === 'simulation';
         const isMockUrl = isSimulationMode || url.includes('본인주소.app.n8n.cloud') || url.includes('<') || url.includes('localhost');
         
         if (isMockUrl) {

@@ -476,16 +476,16 @@
         
         <div class="settings-mode-selector" style="display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap;">
           <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
-            <input type="radio" name="chat-mode" value="simulation" checked style="width: 18px; height: 18px; accent-color: var(--secondary);"> 
+            <input type="radio" name="chat-mode" value="simulation" style="width: 18px; height: 18px; accent-color: var(--secondary);"> 
             🤖 시뮬레이션 모드 (추천: 서버 세팅 없이 즉각 작동)
           </label>
           <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
-            <input type="radio" name="chat-mode" value="live" style="width: 18px; height: 18px; accent-color: var(--secondary);"> 
+            <input type="radio" name="chat-mode" value="live" checked style="width: 18px; height: 18px; accent-color: var(--secondary);"> 
             ⚡ n8n 실시간 라이브 연동 모드
           </label>
         </div>
 
-        <div class="settings-input-group" id="settings-webhook-group" style="display: none; transition: var(--transition-smooth);">
+        <div class="settings-input-group" id="settings-webhook-group" style="display: block; transition: var(--transition-smooth);">
           <input type="url" id="n8n-webhook-url-input" placeholder="https://jej744.app.n8n.cloud/webhook/portfolio-ai-agent/chat" value="https://jej744.app.n8n.cloud/webhook/portfolio-ai-agent/chat">
         </div>
         
