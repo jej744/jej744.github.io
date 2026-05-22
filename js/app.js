@@ -12,36 +12,65 @@ document.addEventListener('DOMContentLoaded', () => {
   const webhookInput = document.getElementById('n8n-webhook-url-input');
   const saveWebhookBtn = document.getElementById('n8n-save-url-btn');
   const settingsStatus = document.getElementById('settings-status-msg');
+  const modeRadios = document.querySelectorAll('input[name="chat-mode"]');
+  const webhookGroup = document.getElementById('settings-webhook-group');
 
-  // 로컬 스토리지에서 저장된 웹훅 주소 로드 및 매핑
+  // 로컬 스토리지에서 저장된 설정 로드 및 매핑
+  const savedMode = localStorage.getItem('n8n_chat_mode') || 'simulation';
   const savedUrl = localStorage.getItem('n8n_webhook_url');
+
   if (savedUrl && webhookInput) {
     webhookInput.value = savedUrl;
   }
 
+  // 초기 라디오 선택값 설정 및 패널 노출 여부
+  modeRadios.forEach(radio => {
+    if (radio.value === savedMode) {
+      radio.checked = true;
+    }
+  });
+
+  if (webhookGroup) {
+    webhookGroup.style.display = savedMode === 'live' ? 'block' : 'none';
+  }
+
+  // 라디오 변경 시 패널 노출 전환
+  modeRadios.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      if (webhookGroup) {
+        webhookGroup.style.display = e.target.value === 'live' ? 'block' : 'none';
+      }
+    });
+  });
+
   if (saveWebhookBtn) {
     saveWebhookBtn.addEventListener('click', () => {
-      let urlValue = webhookInput.value.trim();
+      const selectedMode = document.querySelector('input[name="chat-mode"]:checked')?.value || 'simulation';
+      localStorage.setItem('n8n_chat_mode', selectedMode);
+
+      if (selectedMode === 'live' && webhookInput) {
+        let urlValue = webhookInput.value.trim();
+        urlValue = urlValue.replace(/^<|>/g, '');
+
+        if (!urlValue) {
+          showStatus('올바른 URL을 입력해 주세요.', 'error-msg');
+          return;
+        }
+
+        try {
+          new URL(urlValue); // URL 유효성 검사
+          localStorage.setItem('n8n_webhook_url', urlValue);
+        } catch (err) {
+          showStatus('유효한 웹훅 URL 형식이 아닙니다. 확인 후 다시 입력해 주세요.', 'error-msg');
+          return;
+        }
+      }
+
+      showStatus('성공적으로 설정되었습니다! 적용을 위해 2초 후 페이지를 새로고침합니다. 🎉', 'success-msg');
       
-      // 마크다운 양식 등에서 유입될 수 있는 <> 괄호 제거 클렌징
-      urlValue = urlValue.replace(/^<|>/g, '');
-
-      if (!urlValue) {
-        showStatus('올바른 URL을 입력해 주세요.', 'error-msg');
-        return;
-      }
-
-      try {
-        new URL(urlValue); // URL 유효성 검사
-        localStorage.setItem('n8n_webhook_url', urlValue);
-        showStatus('성공적으로 연동되었습니다! 적용을 위해 2.5초 후 페이지를 새로고침합니다. 🎉', 'success-msg');
-        
-        setTimeout(() => {
-          window.location.reload();
-        }, 2500);
-      } catch (err) {
-        showStatus('유효한 웹훅 URL 형식이 아닙니다. 확인 후 다시 입력해 주세요.', 'error-msg');
-      }
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     });
   }
 
@@ -245,9 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const sessionId = payload.sessionId || 'default';
         const action = payload.action || 'sendMessage';
 
-        // 1. 만약 n8n 서버가 연결되어 있지 않은 모의 주소이거나 로컬 테스트 중인 경우,
-        // 오프라인 에러 방지를 위해 가상의 Gemini AI 포트폴리오 에이전트 응답을 인터셉팅하여 바로 전달!
-        const isMockUrl = url.includes('본인주소.app.n8n.cloud') || url.includes('<') || url.includes('localhost');
+        // 1. 만약 시뮬레이션 모드이거나 n8n 서버가 연결되어 있지 않은 모의 주소인 경우,
+        // 오프라인 에러 및 CORS preflight 에러 방지를 위해 가상의 Gemini AI 포트폴리오 에이전트 응답을 인터셉팅하여 바로 전달!
+        const isSimulationMode = (localStorage.getItem('n8n_chat_mode') || 'simulation') === 'simulation';
+        const isMockUrl = isSimulationMode || url.includes('본인주소.app.n8n.cloud') || url.includes('<') || url.includes('localhost');
         
         if (isMockUrl) {
           // 로컬 에뮬레이션 응답 지연 (현실감을 위한 1.2초 대기)

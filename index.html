@@ -470,12 +470,27 @@
       <div class="webhook-settings-panel glass">
         <div class="settings-title-row">
           <span class="settings-icon">⚙️</span>
-          <h4>n8n 챗봇 실시간 API 주소 설정</h4>
+          <h4>AI 챗봇 작동 엔진 설정</h4>
         </div>
-        <p class="settings-desc">깃허브 블로그 배포 후 본인의 n8n 챗봇 웹훅 주소(Webhook URL)를 입력하고 적용하면, 이 사이트 전체의 챗봇이 실제 n8n AI 에이전트와 연동되어 작동합니다!</p>
-        <div class="settings-input-group">
-          <input type="url" id="n8n-webhook-url-input" placeholder="https://본인주소.app.n8n.cloud/webhook/chat" value="https://본인주소.app.n8n.cloud/webhook/chat">
-          <button id="n8n-save-url-btn" class="btn btn-primary">연동 주소 적용</button>
+        <p class="settings-desc">챗봇 대화 엔진 방식을 전환할 수 있습니다. 서버 연동 없이 즉시 안정적으로 작동하는 **시뮬레이션 모드**와 실제 배포된 n8n 클라우드 서버와 대화하는 **n8n 실시간 라이브 연동 모드**를 지원합니다.</p>
+        
+        <div class="settings-mode-selector" style="display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
+            <input type="radio" name="chat-mode" value="simulation" checked style="width: 18px; height: 18px; accent-color: var(--secondary);"> 
+            🤖 시뮬레이션 모드 (추천: 서버 세팅 없이 즉각 작동)
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
+            <input type="radio" name="chat-mode" value="live" style="width: 18px; height: 18px; accent-color: var(--secondary);"> 
+            ⚡ n8n 실시간 라이브 연동 모드
+          </label>
+        </div>
+
+        <div class="settings-input-group" id="settings-webhook-group" style="display: none; transition: var(--transition-smooth);">
+          <input type="url" id="n8n-webhook-url-input" placeholder="https://jej744.app.n8n.cloud/webhook/portfolio-ai-agent/chat" value="https://jej744.app.n8n.cloud/webhook/portfolio-ai-agent/chat">
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <button id="n8n-save-url-btn" class="btn btn-primary">설정 저장 및 적용</button>
         </div>
         <span id="settings-status-msg" class="settings-status"></span>
       </div>
@@ -500,7 +515,7 @@
   <!-- ===== 포트폴리오 AI 챗봇 설정 ===== -->
   <script>
     // 사용자가 로컬 스토리지에 n8n 주소를 등록해 둔 경우 해당 주소를 불러오고, 없으면 기본값 지정
-    const savedWebhookUrl = localStorage.getItem('n8n_webhook_url') || 'https://본인주소.app.n8n.cloud/webhook/chat';
+    const savedWebhookUrl = localStorage.getItem('n8n_webhook_url') || 'https://jej744.app.n8n.cloud/webhook/portfolio-ai-agent/chat';
     
     // juansebsol/n8n-chatbot-template이 필요로 하는 전역 설정 객체 등록
     window.ChatWidgetConfig = {
