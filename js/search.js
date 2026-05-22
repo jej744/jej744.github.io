@@ -1,72 +1,67 @@
-/**
- * HGD.dev - Instant Project Search & Filter System
- * Dynamically filters projects on keyup matching tag names, titles, and descriptions.
- */
-document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('project-search');
-  const projectCards = document.querySelectorAll('.project-card');
+// js/search.js
 
-  if (!searchInput) return;
-
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-
-    projectCards.forEach(card => {
-      // 카드 내부 검색 대상 텍스트 수집 (제목, 설명, 태그)
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      const desc = card.querySelector('.project-desc').textContent.toLowerCase();
-      const tags = Array.from(card.querySelectorAll('.tech-tags span'))
-                        .map(t => t.textContent.toLowerCase());
-      
-      const searchSource = `${title} ${desc} ${tags.join(' ')}`;
-
-      // 검색어 매칭 검사
-      const isMatch = query === '' || searchSource.includes(query);
-
-      if (isMatch) {
-        // 일치하는 경우 표시 (애니메이션 적용)
-        card.classList.remove('filtered-out');
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0) scale(1)';
-        card.style.pointerEvents = 'auto';
-      } else {
-        // 일치하지 않는 경우 숨김
-        card.classList.add('filtered-out');
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px) scale(0.95)';
-        card.style.pointerEvents = 'none';
-      }
+export function setupSearch(posts, onFilter) {
+    const searchInput = document.getElementById('search-input');
+    const tagsContainer = document.getElementById('tags-container');
+    
+    let currentSearchTerm = '';
+    let currentSelectedTag = null;
+    
+    // Extract unique tags
+    const allTags = new Set();
+    posts.forEach(post => {
+        if (post.tags && Array.isArray(post.tags)) {
+            post.tags.forEach(tag => allTags.add(tag));
+        }
     });
-
-    // 검색 결과가 아예 없을 때 피드백 카드 동적 생성/제거
-    toggleNoResultsMessage();
-  });
-
-  function toggleNoResultsMessage() {
-    let noResultsMsg = document.getElementById('no-search-results');
-    const visibleCards = document.querySelectorAll('.project-card:not(.filtered-out)');
-    const container = document.querySelector('.projects-container');
-
-    if (visibleCards.length === 0) {
-      if (!noResultsMsg) {
-        noResultsMsg = document.createElement('div');
-        noResultsMsg.id = 'no-search-results';
-        noResultsMsg.className = 'glass';
-        noResultsMsg.style.padding = '40px';
-        noResultsMsg.style.textAlign = 'center';
-        noResultsMsg.style.color = 'var(--text-muted)';
-        noResultsMsg.style.marginTop = '20px';
-        noResultsMsg.innerHTML = `
-          <div style="font-size: 3rem; margin-bottom: 16px;">🔍</div>
-          <h4>검색 결과가 없습니다.</h4>
-          <p style="font-size: 0.9rem; margin-top: 8px;">다른 키워드로 검색해 보세요. (예: n8n, python, 자동화, Tableau)</p>
-        `;
-        container.appendChild(noResultsMsg);
-      }
-    } else {
-      if (noResultsMsg) {
-        noResultsMsg.remove();
-      }
+    
+    // Render tags
+    tagsContainer.innerHTML = '';
+    const allTagBtn = document.createElement('button');
+    allTagBtn.className = 'tag active';
+    allTagBtn.textContent = 'All';
+    allTagBtn.addEventListener('click', () => {
+        currentSelectedTag = null;
+        updateActiveTag(allTagBtn);
+        filterPosts();
+    });
+    tagsContainer.appendChild(allTagBtn);
+    
+    Array.from(allTags).sort().forEach(tag => {
+        const tagBtn = document.createElement('button');
+        tagBtn.className = 'tag';
+        tagBtn.textContent = tag;
+        tagBtn.addEventListener('click', () => {
+            currentSelectedTag = tag;
+            updateActiveTag(tagBtn);
+            filterPosts();
+        });
+        tagsContainer.appendChild(tagBtn);
+    });
+    
+    // Search input event
+    searchInput.addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value.toLowerCase();
+        filterPosts();
+    });
+    
+    function updateActiveTag(activeBtn) {
+        const btns = tagsContainer.querySelectorAll('.tag');
+        btns.forEach(btn => btn.classList.remove('active'));
+        activeBtn.classList.add('active');
     }
-  }
-});
+    
+    function filterPosts() {
+        const filtered = posts.filter(post => {
+            const matchesSearch = post.title.toLowerCase().includes(currentSearchTerm) || 
+                                  post.excerpt.toLowerCase().includes(currentSearchTerm);
+            
+            const matchesTag = currentSelectedTag === null || 
+                               (post.tags && post.tags.includes(currentSelectedTag));
+                               
+            return matchesSearch && matchesTag;
+        });
+        
+        onFilter(filtered);
+    }
+}

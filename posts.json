@@ -1,0 +1,15 @@
+[
+  {
+    "file": "example.md",
+    "title": "첫 번째 게시글",
+    "date": "2026-05-08",
+    "tags": [
+      "JavaScript",
+      "Web",
+      "GitHub Pages"
+    ],
+    "category": "Development",
+    "description": "GitHub Pages를 이용한 정적 블로그 구축 테스트 게시글입니다.",
+    "excerpt": "이 블로그는 복잡한 프레임워크나 빌드 도구 없이  만을 사용하여 구축되었습니다. 1. : Jekyll 없이 순수 `.html`과 `.md` 파일만으로 동작합니다. 2. : `marked.js`를 사용해 브라우저에서 마크다운을 실시간으로 렌더링합니다. 3. : GitHub Actions가 배포될 때마다 `posts.json`을 자동으로 생성합니다. 4. :"
+  }
+]
